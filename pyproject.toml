@@ -1,0 +1,9 @@
+[project]
+name = "org2ical-app"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "org2ical>=0.0.4",
+]
