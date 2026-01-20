@@ -9,6 +9,7 @@ Options:
     -o <ics_name>   : output ics file
 """
 import os
+from datetime import datetime
 import org2ical
 from docopt import docopt
 
@@ -16,7 +17,8 @@ def main(org_name, ics_name):
     orgstr = ""
     with open(org_name) as f:
         orgstr = f.read()
-    ical, w = org2ical.loads(orgstr)
+    tz = datetime.now().astimezone().tzinfo
+    ical, w = org2ical.loads(orgstr, to_tz=tz)
     assert w == []
     with open(ics_name, mode='w') as f:
         f.write(ical)
